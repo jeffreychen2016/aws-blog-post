@@ -21,9 +21,13 @@
     "typescript": "~3.7.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-apigateway": "^1.36.1",
+    "@aws-cdk/aws-dynamodb": "^1.36.1",
+    "@aws-cdk/aws-lambda": "^1.36.1",
     "@aws-cdk/aws-sns": "1.36.1",
     "@aws-cdk/aws-sns-subscriptions": "1.36.1",
     "@aws-cdk/aws-sqs": "1.36.1",
-    "@aws-cdk/core": "1.36.1"
+    "@aws-cdk/core": "1.36.1",
+    "aws-dynamodb": "^0.1.69"
   }
 }
