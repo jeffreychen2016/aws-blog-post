@@ -13,3 +13,11 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk synth`       emits the synthesized CloudFormation template
+
+ ## Test
+
+ To test with postman:
+
+ 1. In AWS ApiGateway console -> Stages -> copy Invoke URL
+ 2. In postman -> Authorization -> change TYPE to AWS Signature -> fill in AccessKey, SecretKey, AWS Region and Service Name with 'execute-api'
+ 3. In postman -> Headers -> add key/value (key:x-api-key, value: the-api-key)
