@@ -12,4 +12,4 @@ cdk.out
 .build
 
 # Include function .js
-!lib/assets/*.js
+!lib/**/*.js
