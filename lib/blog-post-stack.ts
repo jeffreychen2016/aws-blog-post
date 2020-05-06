@@ -79,9 +79,13 @@ export class BlogPostStack extends cdk.Stack {
     book.addMethod("GET", getBookFunctionIntegration, { apiKeyRequired: true });
 
     // 6 .create a new api key
-    // TODO: this method create api key with random key name
-    // find a way to generate key with custom name and import to usageplan config
-    const apiKey = booksApi.addApiKey("ApiKey");
+    // use this approach to create api key with custom name
+    const customApiKey = new ApiKey(this, "customApiKey", {
+      apiKeyName: "custom-api-key",
+    });
+
+    // use this approach to create api key with random name on flight
+    // const apiKey = booksApi.addApiKey("ApiKey");
 
     // 7. create usage plan
     // this controls how the api key can access the api endpoint
@@ -89,7 +93,8 @@ export class BlogPostStack extends cdk.Stack {
     const plan = booksApi.addUsagePlan("usagePlan", {
       name: "plan-A",
       description: "usage plan A",
-      apiKey: apiKey,
+      // bind the api key with the rest apis
+      apiKey: customApiKey,
       quota: {
         limit: 1000,
         period: apigateway.Period.MONTH,
